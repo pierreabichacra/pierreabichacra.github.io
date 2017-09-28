@@ -9,6 +9,7 @@ span{
 }
 .homePierre{
 	text-align: left;
+	font-size: 120%;
 }
 .container-fluid{
 	background-color: black;
@@ -18,5 +19,8 @@ span{
 }
 a{
 	color: white;
+}
+ul li{
+	font-size: 150%;
 }
 
