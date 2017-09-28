@@ -8,5 +8,12 @@ span{
 	margin-left:38%; 
 }
 .homePierre{
+	text-align: left;
+}
+.container-fluid{
+	background-color: cyan;
+}
+.homePierre h2{
 	text-align: center;
 }
+
