@@ -11,9 +11,12 @@ span{
 	text-align: left;
 }
 .container-fluid{
-	background-color: cyan;
+	background-color: black;
 }
 .homePierre h2{
 	text-align: center;
+}
+a{
+	color: white;
 }
 
