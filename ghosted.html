@@ -1,0 +1,62 @@
+<html>  
+    <head>
+        <title>
+            hel
+        </title>
+
+        <script src="https://code.jquery.com/jquery-3.3.1.js"
+                integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+                crossorigin="anonymous">
+        </script>
+    </head>
+
+    <body>
+            <div class="app">
+                    <h1>GHOST3D MP3</h1>
+                    <div id="deviceready" class="blink">
+                        <input type="text" id="searchbox" placeholder="title...">
+                        <button onclick="getVideoList()">search</button>
+                    </div>
+        
+                    <div id = "searchResult">
+                        <p >your search results: </p>
+                        <!-- <iframe class="button-api-frame" src="https://www.yt2mp3s.me/@api/button/videos/fRh_vgS2dFE" width="100%" height="100%" allowtransparency="true" scrolling="no" style="border:none"></iframe>
+                        <iframe class="button-api-frame" src="https://www.yt2mp3s.me/@api/button/mp3/fRh_vgS2dFE" width="100%" height="100%" allowtransparency="true" scrolling="no" style="border:none"></iframe> -->
+
+                    </div>
+                </div>
+                
+                <script>
+                    function getVideoList(){
+                        
+                        let title = document.getElementById("searchbox").value;
+                        let arr = title.split(" ");
+                        let query = "";
+                        for(let i = 0 ; i < arr.length; i++){
+                         
+                            query += arr[i];
+                            
+                        }
+                        let url = "https://www.googleapis.com/youtube/v3/search?maxResults=5&q="+query+"&part=snippet&key=AIzaSyDl-38-y2PQuMahD3xEueLYPDSUkyw870Y";
+                        $.get(
+                            url,
+                            (data)=> {
+                                for(let j = 0 ; j < data.items.length; j++){
+                                    $("#searchResult").append("<h2>"+data.items[j].snippet.title+"</h2>"
+                                    +
+                                    "<iframe class='button-api-frame' src='https://www.yt2mp3s.me/@api/button/mp3/"+data.items[j].id.videoId+"' width='35%' height='20%' allowtransparency='true' scrolling='no' style='border:none'></iframe>"
+                                )
+                                }
+                                
+                                
+                            console.log('page content: ' + data.items[0].id.videoId);
+                            }
+                        );
+                    //     items[0].id.videoId
+                    //     items[0].snippet.title
+        
+                    // 
+                }
+                </script>
+    </body>
+</html>
